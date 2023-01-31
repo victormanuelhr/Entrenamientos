@@ -1,0 +1,16 @@
+from PyPDF2 import PdfFileReader
+
+file = 'paper.pdf'
+pdf = PdfFileReader(file)
+page1_object = pdf.getPage(0)
+print(page1_object)
+
+page1_text = page1_object.extractText()
+print(page1_text)
+from pathlib import Path
+with Path('paper2.txt').open(mode='w') as output_file:
+    text = ''
+    for page in pdf.pages:
+        text += page.extractText()
+    output_file.write(text)
+import nltk
