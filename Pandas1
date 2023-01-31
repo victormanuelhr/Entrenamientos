@@ -1,0 +1,20 @@
+import pandas as pd
+df_train = pd.read_csv ('train.csv') #funcion para leer o cargar un archivo csv
+df_train.head (20) #muestra las primeras filas de las bases de datos, entre parentesis estan los elementos
+df_train.shape #muestra la forma/dimension de nuestra tabla
+df_train['Id'] #muestra las primeras 5 filcas y las ultimas 5 filas de una columna dada en corchetes
+df_train[['Id','SalePrice']] #para mostrar varias columnas hay que ponerlo en dobles corchetes ya que estamos 
+                            #haciendo una lista
+df_train['SalePrice'].mean()
+df_train.describe ()
+import matplotlib.pyplot as plt #es una libreria para hacer graficas a partir de datos contenidos en listas, vectores
+import seaborn as sns #es una libreria de visualizacion de datos y realizacion de graficas
+import numpy as np #libreria especializada en el calculo numerico y el analisis de un gran volumen de datos
+from scipy.stats import norm #importar elementos especficos de librerias
+from scipy import stats
+from sklearn.preprocessing import StandardScaler
+import warnings
+%matplotlib inline #que al momento de realizar las graficas salgan en las lineas de codigo
+df_train['SalePrice'].describe() #datos estadisticos de la columna ofrecida
+#grafica de distribucion
+sns.distplot(df_train['SalePrice'])
